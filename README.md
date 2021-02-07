@@ -2,11 +2,10 @@
 An Android client implementation for berightthere written in Kotlin
 
 # Screenshots
+Main overview. Supports starting a trip with various transport modes. Provides an overview over previous trips and allows swiping to delete.
 
-Main overview:
+<img alt="Main overview" src="screenshots/main-overview.png" width="450" />
 
-![Main overview](screenshots/main-overview.png)
+An ongoing trip. Supports sharing the trip using the Android share intent. Screen automatically zoom out to contain route unless deactivated by moving / zooming.
 
-An ongoing trip:
-
-![Trip ongoing](screenshots/trip-ongoing.png)
+<img alt="Trip ongoing" src="screenshots/trip-ongoing.png" width="450" />
