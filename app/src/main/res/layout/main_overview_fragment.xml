@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable name="viewModel" type="mwvdev.berightthere.android.viewmodel.MainViewModel"/>
+
+        <import type="mwvdev.berightthere.android.viewmodel.binding.BindingUtils"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_overview_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tripRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/chipGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/startTripButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:height="72dp"
+            android:background="@color/colorSecondary"
+            android:text="@string/start_trip"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:selectionRequired="true"
+            android:checkedButton="@={BindingUtils.transportModeToButtonId(viewModel.transportMode)}"
+            app:layout_constraintBottom_toTopOf="@+id/startTripButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/walkingChip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                app:chipCornerRadius="5dp"
+                app:chipEndPadding="4dp"
+                app:chipIcon="@drawable/ic_directions_walk_24dp"
+                app:chipIconSize="80dp"
+                app:chipIconVisible="true"
+                app:chipMinHeight="86dp"
+                app:chipStartPadding="4dp"
+                app:closeIconEndPadding="0dp"
+                app:closeIconStartPadding="0dp"
+                app:textEndPadding="0dp"
+                app:textStartPadding="0dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/bicycleChip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipCornerRadius="5dp"
+                app:chipEndPadding="4dp"
+                app:chipIcon="@drawable/ic_directions_bike_24dp"
+                app:chipIconSize="80dp"
+                app:chipIconVisible="true"
+                app:chipMinHeight="86dp"
+                app:chipStartPadding="4dp"
+                app:closeIconEndPadding="0dp"
+                app:closeIconStartPadding="0dp"
+                app:textEndPadding="0dp"
+                app:textStartPadding="0dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/carChip"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:chipCornerRadius="5dp"
+                app:chipEndPadding="4dp"
+                app:chipIcon="@drawable/ic_directions_car_24dp"
+                app:chipIconSize="80dp"
+                app:chipIconVisible="true"
+                app:chipMinHeight="86dp"
+                app:chipStartPadding="4dp"
+                app:closeIconEndPadding="0dp"
+                app:closeIconStartPadding="0dp"
+                app:textEndPadding="0dp"
+                app:textStartPadding="0dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

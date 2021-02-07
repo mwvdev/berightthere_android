@@ -1,0 +1,35 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="mwvdev.berightthere.android.MainActivity">
+
+    <item
+        android:id="@+id/pauseTripMenuItem"
+        android:icon="@drawable/ic_pause_24dp"
+        android:title="Pause trip"
+        android:contentDescription="Pauses the trip"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/resumeTripMenuItem"
+        android:icon="@drawable/ic_play_arrow_24dp"
+        android:title="Resume trip"
+        android:contentDescription="Resumes the trip"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/stopTripMenuItem"
+        android:icon="@drawable/ic_clear_24dp"
+        android:title="Stop trip"
+        android:contentDescription="Stops the trip"
+        app:showAsAction="ifRoom"
+        />
+
+<!--    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />-->
+</menu>

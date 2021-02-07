@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Be right there Android</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="notification_title">Notification title</string>
+    <string name="notification_message">Message</string>
+    <string name="ticker_text">Notification ticker</string>
+
+    <string name="click_to_start_trip">Click the button to start a trip</string>
+    <string name="start_trip">Start trip</string>
+
+    <string name="trip_message">Started a trip!</string>
+    <string name="hang_on_checking_in">Hang on! Checking in 🔌</string>
+    <string name="trip_exit_confirm_title">Stop trip?</string>
+    <string name="trip_exit_confirm_message">Do you want to stop the current trip?</string>
+    <string name="locating_your_position">Almost there, locating your position!</string>
+    <string name="enable_auto_zooming">Enable auto zooming</string>
+
+    <string name="grant_location_permission">Grant location permission</string>
+    <string name="location_permission_explanation">Be right there needs your permission to access your location.\n\nThis will only be used when you start a trip and while it is still ongoing.</string>
+</resources>

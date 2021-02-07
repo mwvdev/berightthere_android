@@ -1,0 +1,111 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "ccb54bbe79515b46e7d48c7d8f29e963",
+    "entities": [
+      {
+        "tableName": "Trip",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`tripIdentifier` TEXT NOT NULL, `createdAt` TEXT NOT NULL, `transportMode` TEXT NOT NULL, PRIMARY KEY(`tripIdentifier`))",
+        "fields": [
+          {
+            "fieldPath": "tripIdentifier",
+            "columnName": "tripIdentifier",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdAt",
+            "columnName": "createdAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transportMode",
+            "columnName": "transportMode",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "tripIdentifier"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Location",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`locationEntityId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `linkedTripIdentifier` TEXT NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `accuracy` REAL NOT NULL, FOREIGN KEY(`linkedTripIdentifier`) REFERENCES `Trip`(`tripIdentifier`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "locationEntityId",
+            "columnName": "locationEntityId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "linkedTripIdentifier",
+            "columnName": "linkedTripIdentifier",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accuracy",
+            "columnName": "accuracy",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "locationEntityId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Location_linkedTripIdentifier",
+            "unique": false,
+            "columnNames": [
+              "linkedTripIdentifier"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Location_linkedTripIdentifier` ON `${TABLE_NAME}` (`linkedTripIdentifier`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "Trip",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "linkedTripIdentifier"
+            ],
+            "referencedColumns": [
+              "tripIdentifier"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ccb54bbe79515b46e7d48c7d8f29e963')"
+    ]
+  }
+}
