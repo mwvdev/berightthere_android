@@ -1,5 +1,5 @@
 # berightthere_android
-An Android client implementation for berightthere written in Kotlin
+An Android client implementation for [berightthere](https://github.com/mwvdev/berightthere) written in Kotlin.
 
 ## Main overview
 Supports starting a trip with various transport modes. Provides an overview over previous trips and allows swiping to delete.
